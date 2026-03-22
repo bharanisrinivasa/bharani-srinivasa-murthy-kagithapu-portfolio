@@ -70,7 +70,47 @@ export const PORTFOLIO_DATA = {
     {
       name: "Solutions Architecture",
       issuer: "Forage",
-      image: "https://logo.clearbit.com/theforage.com?size=200"
+      image: "https://www.google.com/s2/favicons?domain=theforage.com&sz=256"
+    },
+    {
+      name: "Microlearning in Full Stack Development",
+      issuer: "Board Infinity",
+      image: "https://www.google.com/s2/favicons?domain=boardinfinity.com&sz=256"
+    },
+    {
+      name: "Responsive Web Design",
+      issuer: "freeCodeCamp",
+      image: "https://avatars.githubusercontent.com/u/9892522?s=200&v=4"
+    },
+    {
+      name: "Python Dynamics: From Algorithms to AI",
+      issuer: "Lovely Professional University",
+      image: "https://upload.wikimedia.org/wikipedia/en/3/3a/Lovely_Professional_University_logo.png"
+    },
+    {
+      name: "Community Development Project Volunteer",
+      issuer: "GOOD CARE HELPING SOCIETY",
+      image: "https://images.unsplash.com/photo-1559027615-cd4628ce2751?auto=format&fit=crop&q=80&w=400&h=400"
+    },
+    {
+      name: "The Bits and Bytes of Computer Networking",
+      issuer: "Google",
+      image: "https://www.vectorlogo.zone/logos/google/google-icon.svg"
+    },
+    {
+      name: "HackWithVertos 1.0 Hackathon",
+      issuer: "Lovely Professional University (ECHO)",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400&h=400"
+    },
+    {
+      name: "Packet Switching Networks and Algorithms",
+      issuer: "University of Colorado",
+      image: "https://www.google.com/s2/favicons?domain=cu.edu&sz=256"
+    },
+    {
+      name: "Fundamentals of Network Communication",
+      issuer: "University of Colorado",
+      image: "https://www.google.com/s2/favicons?domain=cu.edu&sz=256"
     }
   ]
 };
