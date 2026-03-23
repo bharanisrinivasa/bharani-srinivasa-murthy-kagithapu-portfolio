@@ -149,7 +149,7 @@ export default function Resume() {
               <Award size={14} /> Certificates
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {PORTFOLIO_DATA.certifications.map((cert, i) => (
+              {PORTFOLIO_DATA.certificates.map((cert, i) => (
                 <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
                   <div className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
                     <img src={cert.image} alt="" className="w-full h-full object-cover opacity-60" />
