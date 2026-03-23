@@ -9,6 +9,7 @@ export const PORTFOLIO_DATA = {
     github: "https://github.com/bharanisrinivasa",
   },
   summary: "I’m a Computer Science student who enjoys learning by building real things. I have a strong interest in Python, web development, automation, AI, cloud, and DevOps. I love solving problems through code and turning ideas into working projects.",
+  summerTraining: "In July 2025, I completed an intensive Python Dynamics training program at Lovely Professional University, where I bridged the gap between fundamental algorithms and applied Artificial Intelligence. This hands-on experience allowed me to master advanced Python programming, including object-oriented paradigms (OOP) and dynamic control flow, which I utilized to engineer scalable automation and data processing workflows. Beyond the technical implementation of functional, optimized code structures, this rigorous project-based learning environment significantly elevated my analytical thinking and problem-solving capabilities. By translating theoretical AI concepts into real-world simulations, I solidified a robust foundation in building intelligent, efficient software systems",
   projects: [
     {
       title: "Python-based File Manager",
@@ -51,66 +52,78 @@ export const PORTFOLIO_DATA = {
       period: "April 2020 - March 2021"
     }
   ],
-  certifications: [
+  certificates: [
     {
       name: "Oracle Cloud Infrastructure",
       issuer: "Oracle University",
-      image: "https://www.vectorlogo.zone/logos/oracle/oracle-icon.svg"
+      image: "https://www.vectorlogo.zone/logos/oracle/oracle-icon.svg",
+      link: "https://drive.google.com/file/d/1NBSKmaaeyqJIIdU2CyQJx2_YMtncFwWC/view?usp=sharing"
     },
     {
       name: "DevOps",
       issuer: "Oracle University",
-      image: "https://www.vectorlogo.zone/logos/oracle/oracle-ar21.svg"
+      image: "https://www.vectorlogo.zone/logos/oracle/oracle-ar21.svg",
+      link: "https://drive.google.com/file/d/1qgxeejgg7XRcgYYZRX9Q1fecjQTs6Lo5/view?usp=sharing"
     },
     {
       name: "Docker Foundations",
       issuer: "LinkedIn Learning",
-      image: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg"
+      image: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg",
+      link: "https://drive.google.com/file/d/1JjNzbLL3rJfn7mPLhqtuq2QSpDPWHydE/view?usp=sharing"
     },
     {
       name: "Solutions Architecture",
       issuer: "Forage",
-      image: "https://www.google.com/s2/favicons?domain=theforage.com&sz=256"
+      image: "https://www.google.com/s2/favicons?domain=theforage.com&sz=256",
+      link: "https://drive.google.com/file/d/1UALBmBRdFr6Sq0diVXwHT3yqPedmS1z0/view?usp=sharing"
     },
     {
       name: "Microlearning in Full Stack Development",
       issuer: "Board Infinity",
-      image: "https://www.google.com/s2/favicons?domain=boardinfinity.com&sz=256"
+      image: "https://www.google.com/s2/favicons?domain=boardinfinity.com&sz=256",
+      link: "https://drive.google.com/file/d/1wDnzD_wfwAA1FXlyMy_i0E0VX3MRZmzU/view?usp=sharing"
     },
     {
       name: "Responsive Web Design",
       issuer: "freeCodeCamp",
-      image: "https://avatars.githubusercontent.com/u/9892522?s=200&v=4"
+      image: "https://avatars.githubusercontent.com/u/9892522?s=200&v=4",
+      link: "https://drive.google.com/file/d/1VSXhkREBQKQiGrXfEQWOG2b3iwTII_4d/view?usp=sharing"
     },
     {
       name: "Python Dynamics: From Algorithms to AI",
       issuer: "Lovely Professional University",
-      image: "https://upload.wikimedia.org/wikipedia/en/3/3a/Lovely_Professional_University_logo.png"
+      image: "https://upload.wikimedia.org/wikipedia/en/3/3a/Lovely_Professional_University_logo.png",
+      link: "https://drive.google.com/file/d/128dTGPgpm_qZRfkwl2S456-L9ZG0EnZu/view?usp=sharing"
     },
     {
       name: "Community Development Project Volunteer",
       issuer: "GOOD CARE HELPING SOCIETY",
-      image: "https://images.unsplash.com/photo-1559027615-cd4628ce2751?auto=format&fit=crop&q=80&w=400&h=400"
+      image: "https://images.unsplash.com/photo-1559027615-cd4628ce2751?auto=format&fit=crop&q=80&w=400&h=400",
+      link: "https://drive.google.com/file/d/1VDXRQJ_9hY5Grr3nmF-tCte6Ija1cPE4/view?usp=sharing"
     },
     {
       name: "The Bits and Bytes of Computer Networking",
       issuer: "Google",
-      image: "https://www.vectorlogo.zone/logos/google/google-icon.svg"
+      image: "https://www.vectorlogo.zone/logos/google/google-icon.svg",
+      link: "https://drive.google.com/file/d/1QdZ2EzRcj7UCSIBK57xU_eg-amfDcX7S/view?usp=sharing"
     },
     {
       name: "HackWithVertos 1.0 Hackathon",
       issuer: "Lovely Professional University (ECHO)",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400&h=400"
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400&h=400",
+      link: "https://drive.google.com/file/d/1S51C3u8iTdwcosm5yjRmTXoamZ5lNomB/view?usp=sharing"
     },
     {
       name: "Packet Switching Networks and Algorithms",
       issuer: "University of Colorado",
-      image: "https://www.google.com/s2/favicons?domain=cu.edu&sz=256"
+      image: "https://www.google.com/s2/favicons?domain=cu.edu&sz=256",
+      link: "https://drive.google.com/file/d/1fO4VLrSnUAQ26NFgpxRl4eD3Vt4bpLsW/view?usp=sharing"
     },
     {
       name: "Fundamentals of Network Communication",
       issuer: "University of Colorado",
-      image: "https://www.google.com/s2/favicons?domain=cu.edu&sz=256"
+      image: "https://www.google.com/s2/favicons?domain=cu.edu&sz=256",
+      link: "https://drive.google.com/file/d/1x024GwJrEz4j1ht7ZoJIol5RF_B4hOl0/view?usp=sharing"
     }
   ]
 };

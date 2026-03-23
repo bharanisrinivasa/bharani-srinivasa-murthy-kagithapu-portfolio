@@ -47,7 +47,7 @@ function Portfolio() {
   const containerRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = ["About", "Skills", "Projects", "Education", "Certificates", "Contact"];
+  const menuItems = ["About", "Skills", "Projects", "Training", "Education", "Certificates", "Contact"];
 
   return (
     <div ref={containerRef} className="relative min-h-screen overflow-hidden">
@@ -315,10 +315,29 @@ function Portfolio() {
         </div>
       </Section>
 
+      {/* Summer Training Section */}
+      <Section id="training">
+        <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+          <span className="text-emerald-500 font-mono text-xl">04.</span> Summer Training
+        </h2>
+        <div className="glass p-8 md:p-12 rounded-3xl relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[80px] rounded-full group-hover:bg-emerald-500/20 transition-all duration-700" />
+          <div className="relative z-10">
+            <h3 className="text-2xl font-bold text-slate-200 mb-2">Python Dynamics</h3>
+            <p className="text-emerald-400 font-medium mb-6 flex items-center gap-2">
+              <Award size={18} /> Lovely Professional University • July 2025
+            </p>
+            <p className="text-lg text-slate-400 leading-relaxed">
+              {PORTFOLIO_DATA.summerTraining}
+            </p>
+          </div>
+        </div>
+      </Section>
+
       {/* Education Section */}
       <Section id="education">
         <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-          <span className="text-emerald-500 font-mono text-xl">04.</span> Education & Growth
+          <span className="text-emerald-500 font-mono text-xl">05.</span> Education & Growth
         </h2>
         <div className="space-y-8">
           {PORTFOLIO_DATA.education.map((edu, i) => (
@@ -347,14 +366,15 @@ function Portfolio() {
       {/* Certificates Section */}
       <Section id="certificates">
         <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-          <span className="text-emerald-500 font-mono text-xl">05.</span> Certifications
+          <span className="text-emerald-500 font-mono text-xl">06.</span> Certificates
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {PORTFOLIO_DATA.certifications.map((cert, i) => (
+          {PORTFOLIO_DATA.certificates.map((cert, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="p-4 rounded-3xl glass border-emerald-500/10 flex flex-col items-center text-center gap-4 group"
+              onClick={() => (cert as any).link && window.open((cert as any).link, "_blank")}
+              className={`p-4 rounded-3xl glass border-emerald-500/10 flex flex-col items-center text-center gap-4 group ${(cert as any).link ? 'cursor-pointer hover:border-emerald-500/30' : ''}`}
             >
               <div className="w-full aspect-square rounded-2xl overflow-hidden bg-slate-800/50">
                 <img
