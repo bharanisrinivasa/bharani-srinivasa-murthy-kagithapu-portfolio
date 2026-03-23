@@ -211,7 +211,7 @@ function Portfolio() {
               </div>
               <div className="flex items-center gap-3 text-slate-300">
                 <Briefcase size={18} className="text-emerald-500" />
-                <span>B.Tech Student</span>
+                <span>B.Tech Student at Lovely Professional University</span>
               </div>
             </div>
           </div>
