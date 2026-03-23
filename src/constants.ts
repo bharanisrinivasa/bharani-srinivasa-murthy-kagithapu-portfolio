@@ -11,7 +11,7 @@ export const PORTFOLIO_DATA = {
   summary: "I’m a Computer Science student who enjoys learning by building real things. I have a strong interest in Python, web development, automation, AI, cloud, and DevOps. I love solving problems through code and turning ideas into working projects.",
   projects: [
     {
-      title: "Python-based File Renamer",
+      title: "Python-based File Manager",
       description: "An automated tool for renaming and organizing files efficiently using Python.",
       tags: ["Python", "Automation", "File System"],
       image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
