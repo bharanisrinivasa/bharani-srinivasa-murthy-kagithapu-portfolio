@@ -4,17 +4,17 @@
  */
 
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  ExternalLink, 
-  Code2, 
-  Cloud, 
-  Cpu, 
-  Database, 
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  ExternalLink,
+  Code2,
+  Cloud,
+  Cpu,
+  Database,
   Terminal,
   ChevronRight,
   GraduationCap,
@@ -54,9 +54,9 @@ function Portfolio() {
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-[#030712]" />
-        <img 
-          src="https://picsum.photos/seed/darktech/1920/1080?blur=2" 
-          alt="Background" 
+        <img
+          src="https://picsum.photos/seed/darktech/1920/1080?blur=2"
+          alt="Background"
           className="absolute inset-0 w-full h-full object-cover opacity-20"
           referrerPolicy="no-referrer"
         />
@@ -69,20 +69,20 @@ function Portfolio() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 glass border-b-0 py-4">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="font-mono font-bold text-xl tracking-tighter text-emerald-400"
           >
-            BSMK.DEV
+            Srinivasa
           </motion.span>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex gap-8 text-sm font-medium text-slate-400">
               {menuItems.map((item) => (
-                <a 
-                  key={item} 
+                <a
+                  key={item}
                   href={`#${item.toLowerCase()}`}
                   className="hover:text-emerald-400 transition-colors"
                 >
@@ -104,7 +104,7 @@ function Portfolio() {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="md:hidden text-emerald-400 p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -123,8 +123,8 @@ function Portfolio() {
             >
               <div className="flex flex-col p-6 gap-6">
                 {menuItems.map((item) => (
-                  <a 
-                    key={item} 
+                  <a
+                    key={item}
                     href={`#${item.toLowerCase()}`}
                     onClick={() => setIsMenuOpen(false)}
                     className="text-lg font-medium text-slate-300 hover:text-emerald-400 transition-colors"
@@ -162,7 +162,7 @@ function Portfolio() {
           <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mb-10 leading-relaxed font-light">
             {PORTFOLIO_DATA.role}
           </p>
-          
+
           <div className="flex flex-wrap gap-4">
             <motion.a
               whileHover={{ scale: 1.02 }}
@@ -217,9 +217,9 @@ function Portfolio() {
           </div>
           <div className="relative">
             <div className="aspect-square rounded-3xl overflow-hidden glass p-2">
-              <img 
-                src={profileImage} 
-                alt="Bharani Srinivasa Murthy Kagithapu" 
+              <img
+                src={profileImage}
+                alt="Bharani Srinivasa Murthy Kagithapu"
                 className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
@@ -276,15 +276,15 @@ function Portfolio() {
               whileHover={{ y: -10 }}
               className="group relative rounded-3xl glass overflow-hidden flex flex-col h-full"
             >
-              <a 
-                href={project.link || "#"} 
+              <a
+                href={project.link || "#"}
                 target={project.link ? "_blank" : undefined}
                 rel={project.link ? "noopener noreferrer" : undefined}
                 className="flex flex-col h-full"
               >
                 <div className="h-48 bg-slate-800/50 relative overflow-hidden flex items-center justify-center p-6">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
                     className={`w-full h-full ${project.image.endsWith('.svg') ? 'object-contain' : 'object-cover'} opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700`}
                     referrerPolicy="no-referrer"
@@ -341,7 +341,7 @@ function Portfolio() {
             </div>
           ))}
         </div>
-        
+
       </Section>
 
       {/* Certificates Section */}
@@ -357,8 +357,8 @@ function Portfolio() {
               className="p-4 rounded-3xl glass border-emerald-500/10 flex flex-col items-center text-center gap-4 group"
             >
               <div className="w-full aspect-square rounded-2xl overflow-hidden bg-slate-800/50">
-                <img 
-                  src={cert.image} 
+                <img
+                  src={cert.image}
                   alt={cert.name}
                   className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                   referrerPolicy="no-referrer"
@@ -384,9 +384,9 @@ function Portfolio() {
           <p className="text-slate-400 text-lg mb-12">
             I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
           </p>
-          
+
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <a 
+            <a
               href={`mailto:${PORTFOLIO_DATA.contact.email}`}
               className="p-8 rounded-3xl glass hover:border-emerald-500/30 transition-all group"
             >
@@ -394,7 +394,7 @@ function Portfolio() {
               <h4 className="font-bold mb-1">Email Me</h4>
               <p className="text-sm text-slate-500">{PORTFOLIO_DATA.contact.email}</p>
             </a>
-            <a 
+            <a
               href={PORTFOLIO_DATA.contact.github}
               target="_blank"
               rel="noopener noreferrer"
