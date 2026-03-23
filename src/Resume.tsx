@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "motion/react";
-import { 
-  ArrowLeft, 
-  Download, 
-  Mail, 
-  Phone, 
-  Linkedin, 
-  Github, 
+import {
+  ArrowLeft,
+  Download,
+  Mail,
+  Phone,
+  Linkedin,
+  Github,
   MapPin,
   ExternalLink,
   GraduationCap,
@@ -19,6 +19,16 @@ import { Link } from "react-router-dom";
 import { PORTFOLIO_DATA } from "./constants";
 
 export default function Resume() {
+  const handleDownload = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const downloadUrl = "https://drive.google.com/uc?export=download&id=12wsoAsZTvw0a9fiDqho2Xc5pUWC3t1Tf";
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = downloadUrl;
+    document.body.appendChild(iframe);
+    setTimeout(() => document.body.removeChild(iframe), 5000);
+  };
+
   return (
     <div className="min-h-screen bg-[#030712] text-slate-300 font-sans selection:bg-emerald-500/30">
       {/* Background elements to match main page */}
@@ -32,17 +42,18 @@ export default function Resume() {
           <Link to="/" className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors font-mono font-bold">
             <ArrowLeft size={18} /> BACK
           </Link>
-          <button 
-            onClick={() => window.print()}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500 text-slate-950 font-bold text-sm hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/20"
+          <a
+            href="https://drive.google.com/file/d/12wsoAsZTvw0a9fiDqho2Xc5pUWC3t1Tf/view?usp=sharing"
+            onClick={handleDownload}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500 text-slate-950 font-bold text-sm hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/20 cursor-pointer"
           >
             <Download size={16} /> PRINT PDF
-          </button>
+          </a>
         </div>
       </nav>
 
       <main className="max-w-4xl mx-auto px-6 pb-24">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="glass p-8 md:p-12 rounded-3xl border-emerald-500/10 shadow-2xl"
@@ -71,6 +82,15 @@ export default function Resume() {
               </div>
             </div>
           </header>
+
+          {/* Resume Image */}
+          <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl border border-emerald-500/10">
+            <img
+              src="/src/assets/resume.png"
+              alt="Resume"
+              className="w-full h-auto object-cover"
+            />
+          </div>
 
           {/* Skills */}
           <section className="mb-10">
