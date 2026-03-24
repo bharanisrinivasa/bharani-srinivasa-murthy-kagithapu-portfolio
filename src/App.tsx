@@ -29,6 +29,7 @@ import profileImage from "./assets/profile.png";
 
 import { BrowserRouter as Router, Routes, Route, Link as RouterLink } from "react-router-dom";
 import Resume from "./Resume";
+import Cursor from "./Cursor";
 
 const Section = ({ children, className = "", id = "" }: { children: React.ReactNode; className?: string; id?: string }) => (
   <motion.section
@@ -58,7 +59,6 @@ function Portfolio() {
           src="https://picsum.photos/seed/darktech/1920/1080?blur=2"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover opacity-20"
-          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.05),transparent_50%)]" />
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03]" />
@@ -197,7 +197,12 @@ function Portfolio() {
       {/* About Section */}
       <Section id="about">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
               <span className="text-emerald-500 font-mono text-xl">01.</span> About Me
             </h2>
@@ -214,8 +219,14 @@ function Portfolio() {
                 <span>B.Tech Student at Lovely Professional University</span>
               </div>
             </div>
-          </div>
-          <div className="relative">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="relative"
+          >
             <div className="aspect-square rounded-3xl overflow-hidden glass p-2">
               <img
                 src={profileImage}
@@ -224,7 +235,7 @@ function Portfolio() {
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-emerald-500/20 blur-3xl rounded-full" />
-          </div>
+          </motion.div>
         </div>
       </Section>
 
@@ -287,7 +298,6 @@ function Portfolio() {
                     src={project.image}
                     alt={project.title}
                     className={`w-full h-full ${project.image.endsWith('.svg') ? 'object-contain' : 'object-cover'} opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700`}
-                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent opacity-60" />
                 </div>
@@ -381,7 +391,6 @@ function Portfolio() {
                   src={cert.image}
                   alt={cert.name}
                   className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                  referrerPolicy="no-referrer"
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -450,6 +459,7 @@ function Portfolio() {
 export default function App() {
   return (
     <Router>
+      <Cursor />
       <Routes>
         <Route path="/" element={<Portfolio />} />
         <Route path="/resume" element={<Resume />} />
