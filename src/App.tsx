@@ -30,6 +30,7 @@ import profileImage from "./assets/profile.png";
 import { BrowserRouter as Router, Routes, Route, Link as RouterLink } from "react-router-dom";
 import Resume from "./Resume";
 import Cursor from "./Cursor";
+import LoadingScreen from "./LoadingScreen";
 
 const Section = ({ children, className = "", id = "" }: { children: React.ReactNode; className?: string; id?: string }) => (
   <motion.section
@@ -252,7 +253,11 @@ function Portfolio() {
           ].map((category, i) => (
             <motion.div
               key={i}
-              whileHover={{ y: -5 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.15, type: "spring", bounce: 0.4 }}
+              whileHover={{ y: -5, scale: 1.05, transition: { duration: 0.6 } }}
               className="p-8 rounded-3xl glass group"
             >
               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-6 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
@@ -284,7 +289,11 @@ function Portfolio() {
           {PORTFOLIO_DATA.projects.map((project, i) => (
             <motion.div
               key={i}
-              whileHover={{ y: -10 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.15, type: "spring", bounce: 0.4 }}
+              whileHover={{ y: -10, scale: 1.05, transition: { duration: 0.6 } }}
               className="group relative rounded-3xl glass overflow-hidden flex flex-col h-full"
             >
               <a
@@ -330,7 +339,14 @@ function Portfolio() {
         <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
           <span className="text-emerald-500 font-mono text-xl">04.</span> Summer Training
         </h2>
-        <div className="glass p-8 md:p-12 rounded-3xl relative overflow-hidden group">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+          whileHover={{ scale: 1.02, transition: { duration: 0.8 } }}
+          className="glass p-8 md:p-12 rounded-3xl relative overflow-hidden group block"
+        >
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[80px] rounded-full group-hover:bg-emerald-500/20 transition-all duration-700" />
           <div className="relative z-10">
             <h3 className="text-2xl font-bold text-slate-200 mb-2">Python Dynamics</h3>
@@ -341,7 +357,7 @@ function Portfolio() {
               {PORTFOLIO_DATA.summerTraining}
             </p>
           </div>
-        </div>
+        </motion.div>
       </Section>
 
       {/* Education Section */}
@@ -351,7 +367,15 @@ function Portfolio() {
         </h2>
         <div className="space-y-8">
           {PORTFOLIO_DATA.education.map((edu, i) => (
-            <div key={i} className="relative pl-8 border-l border-emerald-500/20">
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.2, type: "spring", bounce: 0.4 }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.6 } }}
+              className="relative pl-8 border-l border-emerald-500/20"
+            >
               <div className="absolute left-[-5px] top-0 w-2 h-2 rounded-full bg-emerald-500" />
               <div className="glass p-8 rounded-3xl">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-4">
@@ -367,7 +391,7 @@ function Portfolio() {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -382,7 +406,11 @@ function Portfolio() {
           {PORTFOLIO_DATA.certificates.map((cert, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.05, y: -5 }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.15, type: "spring", bounce: 0.5 }}
+              whileHover={{ scale: 1.1, y: -5, transition: { duration: 0.6 } }}
               onClick={() => (cert as any).link && window.open((cert as any).link, "_blank")}
               className={`p-4 rounded-3xl glass border-emerald-500/10 flex flex-col items-center text-center gap-4 group ${(cert as any).link ? 'cursor-pointer hover:border-emerald-500/30' : ''}`}
             >
@@ -415,24 +443,34 @@ function Portfolio() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <a
+            <motion.a
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.6 } }}
               href={`mailto:${PORTFOLIO_DATA.contact.email}`}
-              className="p-8 rounded-3xl glass hover:border-emerald-500/30 transition-all group"
+              className="p-8 rounded-3xl glass hover:border-emerald-500/30 transition-all group block"
             >
               <Mail size={32} className="mx-auto mb-4 text-emerald-500 group-hover:scale-110 transition-transform" />
               <h4 className="font-bold mb-1">Email Me</h4>
               <p className="text-sm text-slate-500">{PORTFOLIO_DATA.contact.email}</p>
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2, type: "spring", bounce: 0.4 }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.6 } }}
               href={PORTFOLIO_DATA.contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-8 rounded-3xl glass hover:border-emerald-500/30 transition-all group"
+              className="p-8 rounded-3xl glass hover:border-emerald-500/30 transition-all group block"
             >
               <Github size={32} className="mx-auto mb-4 text-emerald-500 group-hover:scale-110 transition-transform" />
               <h4 className="font-bold mb-1">GitHub Connect</h4>
               <p className="text-sm text-slate-500">github.com/bharanisrinivasa</p>
-            </a>
+            </motion.a>
           </div>
 
           <motion.a
@@ -457,13 +495,29 @@ function Portfolio() {
 }
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <Router>
       <Cursor />
-      <Routes>
-        <Route path="/" element={<Portfolio />} />
-        <Route path="/resume" element={<Resume />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        {loading ? (
+          <LoadingScreen key="loading" onComplete={() => setLoading(false)} />
+        ) : (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="min-h-screen"
+          >
+            <Routes>
+              <Route path="/" element={<Portfolio />} />
+              <Route path="/resume" element={<Resume />} />
+            </Routes>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Router>
   );
 }
