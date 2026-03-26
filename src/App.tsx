@@ -246,38 +246,43 @@ function Portfolio() {
       </Section>
 
       {/* Skills Section */}
-      <Section id="skills">
-        <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-          <span className="text-emerald-500 font-mono text-xl">02.</span> Technical Arsenal
+      <Section id="skills" className="flex flex-col items-center">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+          Skills & Expertise
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { title: "Cloud & DevOps", icon: Cloud, skills: ["Oracle Cloud", "Docker", "DevOps", "Solutions Architecture"] },
-            { title: "Development", icon: Code2, skills: ["Python", "JavaScript", "NodeJS", "HTML/CSS"] },
-            { title: "Systems & Data", icon: Terminal, skills: ["Linux", "MySQL", "C/C++", "Data Structures"] }
-          ].map((category, i) => (
+        <p className="text-slate-400 text-lg mb-12 text-center">
+          Technologies and tools I work with
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+          {PORTFOLIO_DATA.skills.map((category, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.15, type: "spring", bounce: 0.4 }}
               className="h-full"
             >
-              <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} glareEnable glareMaxOpacity={0.15} scale={1.05} transitionSpeed={1000} className="p-8 rounded-3xl glass group h-full">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-6 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
-                  <category.icon size={24} />
-                </div>
-                <h3 className="text-xl font-bold mb-4">{category.title}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <motion.span
-                      key={skill}
-                      whileHover={{ scale: 1.05, backgroundColor: "rgba(16, 185, 129, 0.2)" }}
-                      className="px-4 py-2 rounded-full glass text-sm font-medium text-emerald-400 border-emerald-500/20"
-                    >
-                      {skill}
-                    </motion.span>
+              <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} glareEnable={true} glareMaxOpacity={0.1} scale={1.02} transitionSpeed={1000} className="p-8 rounded-3xl glass h-full flex flex-col group border-emerald-500/20 hover:border-emerald-500/40 transition-colors duration-500">
+                <h3 className="text-xl font-bold mb-8 text-emerald-400">{category.category}</h3>
+                <div className="flex flex-col gap-6">
+                  {category.items.map((item, j) => (
+                    <div key={item.name} className="flex flex-col gap-2">
+                      <div className="flex justify-between items-center text-sm font-bold text-slate-200 group-hover:text-white transition-colors">
+                        <span>{item.name}</span>
+                        <span>{item.percentage}%</span>
+                      </div>
+                      <div className="w-full h-2 bg-slate-800/80 rounded-full overflow-hidden shadow-inner">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${item.percentage}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1.2, delay: j * 0.15 + i * 0.1, ease: "easeOut" }}
+                          className="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)]"
+                        />
+                      </div>
+                    </div>
                   ))}
                 </div>
               </Tilt>

@@ -33,7 +33,33 @@ export const PORTFOLIO_DATA = {
     }
   ],
   skills: [
-    "Python", "C", "C++", "JavaScript", "HTML", "CSS", "NodeJS", "MySQL", "Linux", "Oracle Cloud Infrastructure", "DevOps", "Docker", "Solutions Architecture"
+    {
+      category: "Programming Languages",
+      items: [
+        { name: "Python", percentage: 95 },
+        { name: "SQL", percentage: 88 },
+        { name: "HTML/CSS/JS", percentage: 85 },
+        { name: "C/C++", percentage: 90 }
+      ]
+    },
+    {
+      category: "Cloud & DevOps",
+      items: [
+        { name: "Oracle Cloud", percentage: 92 },
+        { name: "DevOps", percentage: 90 },
+        { name: "Docker", percentage: 88 },
+        { name: "Solutions Arch.", percentage: 85 }
+      ]
+    },
+    {
+      category: "Tools & Platforms",
+      items: [
+        { name: "NodeJS", percentage: 90 },
+        { name: "Linux", percentage: 89 },
+        { name: "GitHub", percentage: 91 },
+        { name: "VS Code", percentage: 90 }
+      ]
+    }
   ],
   education: [
     {
