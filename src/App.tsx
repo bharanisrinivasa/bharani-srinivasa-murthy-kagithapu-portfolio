@@ -31,6 +31,7 @@ import { BrowserRouter as Router, Routes, Route, Link as RouterLink } from "reac
 import Resume from "./Resume";
 import Cursor from "./Cursor";
 import LoadingScreen from "./LoadingScreen";
+import Tilt from "react-parallax-tilt";
 
 const Section = ({ children, className = "", id = "" }: { children: React.ReactNode; className?: string; id?: string }) => (
   <motion.section
@@ -204,22 +205,24 @@ function Portfolio() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-              <span className="text-emerald-500 font-mono text-xl">01.</span> About Me
-            </h2>
-            <p className="text-lg text-slate-400 leading-relaxed mb-6">
-              {PORTFOLIO_DATA.summary}
-            </p>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex items-center gap-3 text-slate-300">
-                <MapPin size={18} className="text-emerald-500" />
-                <span>{PORTFOLIO_DATA.location}</span>
+            <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} glareEnable={false} transitionSpeed={2000} className="w-full h-full">
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span className="text-emerald-500 font-mono text-xl">01.</span> About Me
+              </h2>
+              <p className="text-lg text-slate-400 leading-relaxed mb-6">
+                {PORTFOLIO_DATA.summary}
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex items-center gap-3 text-slate-300">
+                  <MapPin size={18} className="text-emerald-500" />
+                  <span>{PORTFOLIO_DATA.location}</span>
+                </div>
+                <div className="flex items-center gap-3 text-slate-300">
+                  <Briefcase size={18} className="text-emerald-500" />
+                  <span>B.Tech Student at Lovely Professional University</span>
+                </div>
               </div>
-              <div className="flex items-center gap-3 text-slate-300">
-                <Briefcase size={18} className="text-emerald-500" />
-                <span>B.Tech Student at Lovely Professional University</span>
-              </div>
-            </div>
+            </Tilt>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -228,13 +231,15 @@ function Portfolio() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="relative"
           >
-            <div className="aspect-square rounded-3xl overflow-hidden glass p-2">
-              <img
-                src={profileImage}
-                alt="Bharani Srinivasa Murthy Kagithapu"
-                className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-500"
-              />
-            </div>
+            <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} glareEnable glareMaxOpacity={0.2} scale={1.02} transitionSpeed={1500} tiltReverse={true}>
+              <div className="aspect-square rounded-3xl overflow-hidden glass p-2 relative z-10">
+                <img
+                  src={profileImage}
+                  alt="Bharani Srinivasa Murthy Kagithapu"
+                  className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
+            </Tilt>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-emerald-500/20 blur-3xl rounded-full" />
           </motion.div>
         </div>
@@ -257,24 +262,25 @@ function Portfolio() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.15, type: "spring", bounce: 0.4 }}
-              whileHover={{ y: -5, scale: 1.05, transition: { duration: 0.6 } }}
-              className="p-8 rounded-3xl glass group"
+              className="h-full"
             >
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-6 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
-                <category.icon size={24} />
-              </div>
-              <h3 className="text-xl font-bold mb-4">{category.title}</h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <motion.span
-                    key={skill}
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(16, 185, 129, 0.2)" }}
-                    className="px-4 py-2 rounded-full glass text-sm font-medium text-emerald-400 border-emerald-500/20"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
+              <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} glareEnable glareMaxOpacity={0.15} scale={1.05} transitionSpeed={1000} className="p-8 rounded-3xl glass group h-full">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-6 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
+                  <category.icon size={24} />
+                </div>
+                <h3 className="text-xl font-bold mb-4">{category.title}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <motion.span
+                      key={skill}
+                      whileHover={{ scale: 1.05, backgroundColor: "rgba(16, 185, 129, 0.2)" }}
+                      className="px-4 py-2 rounded-full glass text-sm font-medium text-emerald-400 border-emerald-500/20"
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </div>
+              </Tilt>
             </motion.div>
           ))}
         </div>
@@ -293,42 +299,43 @@ function Portfolio() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.15, type: "spring", bounce: 0.4 }}
-              whileHover={{ y: -10, scale: 1.05, transition: { duration: 0.6 } }}
-              className="group relative rounded-3xl glass overflow-hidden flex flex-col h-full"
+              className="h-full"
             >
-              <a
-                href={project.link || "#"}
-                target={project.link ? "_blank" : undefined}
-                rel={project.link ? "noopener noreferrer" : undefined}
-                className="flex flex-col h-full"
-              >
-                <div className="h-48 bg-slate-800/50 relative overflow-hidden flex items-center justify-center p-6">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className={`w-full h-full ${project.image.endsWith('.svg') ? 'object-contain' : 'object-cover'} opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700`}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent opacity-60" />
-                </div>
-                <div className="p-8 flex flex-col flex-grow">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold group-hover:text-emerald-400 transition-colors">
-                      {project.title}
-                    </h3>
-                    <ExternalLink size={18} className="text-slate-500 group-hover:text-emerald-400" />
+              <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} glareEnable glareMaxOpacity={0.15} scale={1.03} transitionSpeed={1000} className="group relative rounded-3xl glass overflow-hidden flex flex-col h-full">
+                <a
+                  href={project.link || "#"}
+                  target={project.link ? "_blank" : undefined}
+                  rel={project.link ? "noopener noreferrer" : undefined}
+                  className="flex flex-col h-full z-10"
+                >
+                  <div className="h-48 bg-slate-800/50 relative overflow-hidden flex items-center justify-center p-6">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className={`w-full h-full ${project.image.endsWith('.svg') ? 'object-contain' : 'object-cover'} opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700`}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent opacity-60" />
                   </div>
-                  <p className="text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-[10px] font-bold uppercase tracking-wider text-emerald-500/60">
-                        #{tag}
-                      </span>
-                    ))}
+                  <div className="p-8 flex flex-col flex-grow">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-xl font-bold group-hover:text-emerald-400 transition-colors">
+                        {project.title}
+                      </h3>
+                      <ExternalLink size={18} className="text-slate-500 group-hover:text-emerald-400" />
+                    </div>
+                    <p className="text-slate-400 mb-6 text-sm leading-relaxed flex-grow">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="text-[10px] font-bold uppercase tracking-wider text-emerald-500/60">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </Tilt>
             </motion.div>
           ))}
         </div>
@@ -339,24 +346,24 @@ function Portfolio() {
         <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
           <span className="text-emerald-500 font-mono text-xl">04.</span> Summer Training
         </h2>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-          whileHover={{ scale: 1.02, transition: { duration: 0.8 } }}
-          className="glass p-8 md:p-12 rounded-3xl relative overflow-hidden group block"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[80px] rounded-full group-hover:bg-emerald-500/20 transition-all duration-700" />
-          <div className="relative z-10">
-            <h3 className="text-2xl font-bold text-slate-200 mb-2">Python Dynamics</h3>
-            <p className="text-emerald-400 font-medium mb-6 flex items-center gap-2">
-              <Award size={18} /> Lovely Professional University • July 2025
-            </p>
-            <p className="text-lg text-slate-400 leading-relaxed">
-              {PORTFOLIO_DATA.summerTraining}
-            </p>
-          </div>
+          <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} glareEnable glareMaxOpacity={0.1} scale={1.02} transitionSpeed={1500} className="glass p-8 md:p-12 rounded-3xl relative overflow-hidden group block z-10">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[80px] rounded-full group-hover:bg-emerald-500/20 transition-all duration-700" />
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold text-slate-200 mb-2">Python Dynamics</h3>
+              <p className="text-emerald-400 font-medium mb-6 flex items-center gap-2">
+                <Award size={18} /> Lovely Professional University • July 2025
+              </p>
+              <p className="text-lg text-slate-400 leading-relaxed">
+                {PORTFOLIO_DATA.summerTraining}
+              </p>
+            </div>
+          </Tilt>
         </motion.div>
       </Section>
 
@@ -367,17 +374,16 @@ function Portfolio() {
         </h2>
         <div className="space-y-8">
           {PORTFOLIO_DATA.education.map((edu, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.2, type: "spring", bounce: 0.4 }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.6 } }}
               className="relative pl-8 border-l border-emerald-500/20"
             >
-              <div className="absolute left-[-5px] top-0 w-2 h-2 rounded-full bg-emerald-500" />
-              <div className="glass p-8 rounded-3xl">
+              <div className="absolute left-[-5px] top-0 w-2 h-2 rounded-full bg-emerald-500 z-10" />
+              <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} glareEnable glareMaxOpacity={0.1} scale={1.02} transitionSpeed={1000} className="glass p-8 rounded-3xl relative z-0">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-4">
                   <div>
                     <h3 className="text-xl font-bold flex items-center gap-2">
@@ -390,7 +396,7 @@ function Portfolio() {
                     {edu.period}
                   </span>
                 </div>
-              </div>
+              </Tilt>
             </motion.div>
           ))}
         </div>
@@ -404,32 +410,42 @@ function Portfolio() {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {PORTFOLIO_DATA.certificates.map((cert, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.15, type: "spring", bounce: 0.5 }}
-              whileHover={{ scale: 1.1, y: -5, transition: { duration: 0.6 } }}
-              onClick={() => (cert as any).link && window.open((cert as any).link, "_blank")}
-              className={`p-4 rounded-3xl glass border-emerald-500/10 flex flex-col items-center text-center gap-4 group ${(cert as any).link ? 'cursor-pointer hover:border-emerald-500/30' : ''}`}
+            <Tilt
+              key={`tilt-cert-${i}`}
+              tiltMaxAngleX={12}
+              tiltMaxAngleY={12}
+              glareEnable
+              glareMaxOpacity={0.15}
+              scale={1.02}
+              transitionSpeed={1200}
+              className="w-full h-full"
             >
-              <div className="w-full aspect-square rounded-2xl overflow-hidden bg-slate-800/50">
-                <img
-                  src={cert.image}
-                  alt={cert.name}
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-sm font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">
-                  {cert.name}
-                </span>
-                <span className="text-xs font-medium text-slate-500">
-                  {cert.issuer}
-                </span>
-              </div>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: i * 0.15, type: "spring", bounce: 0.5 }}
+                whileHover={{ scale: 1.06, y: -3, transition: { duration: 0.4 } }}
+                onClick={() => (cert as any).link && window.open((cert as any).link, "_blank")}
+                className={`p-4 rounded-3xl glass border-emerald-500/10 flex flex-col items-center text-center gap-4 group ${(cert as any).link ? 'cursor-pointer hover:border-emerald-500/30' : ''}`}
+              >
+                <div className="w-full aspect-square rounded-2xl overflow-hidden bg-slate-800/50">
+                  <img
+                    src={cert.image}
+                    alt={cert.name}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-sm font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">
+                    {cert.name}
+                  </span>
+                  <span className="text-xs font-medium text-slate-500">
+                    {cert.issuer}
+                  </span>
+                </div>
+              </motion.div>
+            </Tilt>
           ))}
         </div>
       </Section>
@@ -443,46 +459,76 @@ function Portfolio() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <motion.a
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
-              whileHover={{ scale: 1.05, transition: { duration: 0.6 } }}
-              href={`mailto:${PORTFOLIO_DATA.contact.email}`}
-              className="p-8 rounded-3xl glass hover:border-emerald-500/30 transition-all group block"
+            <Tilt
+              tiltMaxAngleX={12}
+              tiltMaxAngleY={12}
+              glareEnable
+              glareMaxOpacity={0.15}
+              scale={1.02}
+              transitionSpeed={1200}
+              className="w-full h-full"
             >
-              <Mail size={32} className="mx-auto mb-4 text-emerald-500 group-hover:scale-110 transition-transform" />
-              <h4 className="font-bold mb-1">Email Me</h4>
-              <p className="text-sm text-slate-500">{PORTFOLIO_DATA.contact.email}</p>
-            </motion.a>
-            <motion.a
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.2, type: "spring", bounce: 0.4 }}
-              whileHover={{ scale: 1.05, transition: { duration: 0.6 } }}
-              href={PORTFOLIO_DATA.contact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-8 rounded-3xl glass hover:border-emerald-500/30 transition-all group block"
+              <motion.a
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.6 } }}
+                href={`mailto:${PORTFOLIO_DATA.contact.email}`}
+                className="p-8 rounded-3xl glass hover:border-emerald-500/30 transition-all group block"
+              >
+                <Mail size={32} className="mx-auto mb-4 text-emerald-500 group-hover:scale-110 transition-transform" />
+                <h4 className="font-bold mb-1">Email Me</h4>
+                <p className="text-sm text-slate-500">{PORTFOLIO_DATA.contact.email}</p>
+              </motion.a>
+            </Tilt>
+            <Tilt
+              tiltMaxAngleX={12}
+              tiltMaxAngleY={12}
+              glareEnable
+              glareMaxOpacity={0.15}
+              scale={1.02}
+              transitionSpeed={1200}
+              className="w-full h-full"
             >
-              <Github size={32} className="mx-auto mb-4 text-emerald-500 group-hover:scale-110 transition-transform" />
-              <h4 className="font-bold mb-1">GitHub Connect</h4>
-              <p className="text-sm text-slate-500">github.com/bharanisrinivasa</p>
-            </motion.a>
+              <motion.a
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring", bounce: 0.4 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.6 } }}
+                href={PORTFOLIO_DATA.contact.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-8 rounded-3xl glass hover:border-emerald-500/30 transition-all group block"
+              >
+                <Github size={32} className="mx-auto mb-4 text-emerald-500 group-hover:scale-110 transition-transform" />
+                <h4 className="font-bold mb-1">GitHub Connect</h4>
+                <p className="text-sm text-slate-500">github.com/bharanisrinivasa</p>
+              </motion.a>
+            </Tilt>
           </div>
 
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href={PORTFOLIO_DATA.contact.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-emerald-300 transition-colors"
+          <Tilt
+            tiltMaxAngleX={10}
+            tiltMaxAngleY={10}
+            glareEnable
+            glareMaxOpacity={0.12}
+            scale={1.01}
+            transitionSpeed={1300}
+            className="inline-block"
           >
-            Connect on LinkedIn <ExternalLink size={18} />
-          </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href={PORTFOLIO_DATA.contact.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-emerald-300 transition-colors"
+            >
+              Connect on LinkedIn <ExternalLink size={18} />
+            </motion.a>
+          </Tilt>
         </div>
       </Section>
 
