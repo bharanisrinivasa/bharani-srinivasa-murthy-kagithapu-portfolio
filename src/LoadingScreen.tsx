@@ -48,28 +48,28 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
         transition={{ duration: 1, ease: "easeOut" }}
         className="relative z-10 flex flex-col items-center w-full px-6"
       >
-        <motion.h1 
+        <motion.h1
           className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[0.2em] mb-12 font-mono text-center"
         >
           <span className="text-white">MY</span>
           <span className="text-emerald-500"> PORTFOLIO</span>
         </motion.h1>
-        
+
         {/* Loading Bar Container */}
         <div className="w-full max-w-md h-[4px] bg-slate-800/50 rounded-full overflow-hidden relative backdrop-blur-sm border border-white/5 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
           {/* Animated Glow behind the bar */}
-          <div 
-            className="absolute top-0 left-0 h-full bg-emerald-500/80 blur-[2px] w-full origin-left" 
-            style={{ transform: `scaleX(${progress / 100})` }} 
+          <div
+            className="absolute top-0 left-0 h-full bg-emerald-500/80 blur-[2px] w-full origin-left"
+            style={{ transform: `scaleX(${progress / 100})` }}
           />
-          
+
           {/* Actual Loading Bar */}
-          <motion.div 
+          <motion.div
             className="h-full bg-emerald-400 rounded-full relative z-10"
             style={{ width: `${progress}%` }}
           />
         </div>
-        
+
         {/* Loading Text / Percentage */}
         <div className="mt-8 flex items-center gap-4 text-emerald-500/80 font-mono text-sm tracking-widest uppercase">
           <motion.div
