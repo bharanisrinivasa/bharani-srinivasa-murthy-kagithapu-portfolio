@@ -1,12 +1,14 @@
 # Bharani Srinivasa Murthy Kagithapu - Personal Portfolio 🚀
 
+[![Live Website](https://img.shields.io/badge/Live_Website-View_Now-success?style=for-the-badge&logo=vercel)](https://bharani-srinivasa-murthy-kagithapu.vercel.app/)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
-Welcome to the repository of my personal portfolio website! This project is a showcase of my skills, projects, education, and professional journey as an Aspiring Cloud Engineer and Computer Engineering student. 
+Welcome to the repository of my personal portfolio website! You can view the live project here: [https://bharani-srinivasa-murthy-kagithapu.vercel.app/](https://bharani-srinivasa-murthy-kagithapu.vercel.app/).
 
+This project is a showcase of my skills, projects, education, and professional journey as an Aspiring Cloud Engineer and Computer Engineering student.
 ## 🌟 About Me
 I am a Computer Science & Engineering student at Lovely Professional University with a specialized focus on Cloud Computing. My technical journey is driven by a passion for building scalable, automated, and intelligent systems that solve real-world challenges. From developing Python-based automation tools to exploring the complexities of Cloud Infrastructure, I thrive at the intersection of development and operations.
 
